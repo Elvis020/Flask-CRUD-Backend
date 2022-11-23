@@ -7,7 +7,11 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:elvis99@localhost/articles"
+# Local
+# app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:elvis99@localhost/articles"
+
+# Heroku
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://rlnnkkeopqspqy:0760abfaa00662978b8634c017cf87a90b188de71ad79a8f0dad2e90349af166@ec2-35-170-21-76.compute-1.amazonaws.com:5432/d16il1nq6hbkl1"
 
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
