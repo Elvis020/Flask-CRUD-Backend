@@ -1,9 +1,18 @@
 from datetime import datetime
 
+import psycopg2
 from flask import Flask, request, jsonify, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_cors import CORS
+
+
+conn = psycopg2.connect(
+        host="postgresql://rlnnkkeopqspqy:0760abfaa00662978b8634c017cf87a90b188de71ad79a8f0dad2e90349af166@ec2-35-170-21-76.compute-1.amazonaws.com:5432/d16il1nq6hbkl1",
+        database="articles")
+curs = conn.cursor()
+curs.execute("ROLLBACK")
+conn.commit()
 
 app = Flask(__name__)
 CORS(app)
