@@ -69,8 +69,6 @@ def add_articles():
 
     article = Articles(title, description)
 
-    if article.title is title:
-        return print("Title already exists"), 409
     db.session.add(article)
     db.session.commit()
     return article_schema.jsonify(article), 201
